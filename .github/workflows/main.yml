@@ -41,9 +41,9 @@ jobs:
           password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }} 
 
       - name: Tagging docker image
-        run: docker build -t ${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.CONTAINER_REGISTRY_PROJECT }}/$SERVICE_NAME:${CI_COMMIT_TAG}-${SHORT_SHA} .
+        run: docker build -t ${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.CONTAINER_REGISTRY_PROJECT }}:${CI_COMMIT_TAG}-${SHORT_SHA} .
 
       - name: Push image to ECR container registry
-        run: docker push ${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.CONTAINER_REGISTRY_PROJECT }}/$SERVICE_NAME:${CI_COMMIT_TAG}-${SHORT_SHA}
+        run: docker push ${{ secrets.CONTAINER_REGISTRY }}/${{ secrets.CONTAINER_REGISTRY_PROJECT }}:${CI_COMMIT_TAG}-${SHORT_SHA}
         
 
