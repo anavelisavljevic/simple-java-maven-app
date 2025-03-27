@@ -6,7 +6,7 @@ RUN groupadd -r app -g 1000 && useradd -u 1000 -r -g app -m -d /web-app -s /sbin
     chmod 755 /web-app
 RUN rm -rf /var/lib/apt/lists/*
 WORKDIR /web-app
-COPY build/libs/*.jar application-service.jar
+COPY target/*.jar application-service.jar
 EXPOSE 8080
 USER app
 CMD java $JAVA_SETTINGS -Dserver.port=8080  -jar -Dspring.profiles.active=$PROFILE_ACTIVE application-service.jar
