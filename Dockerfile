@@ -9,5 +9,4 @@ WORKDIR /web-app
 COPY target/*.jar application-service.jar
 EXPOSE 8080
 USER app
-CMD java $JAVA_SETTINGS -Dserver.port=8080  -jar -Dspring.profiles.active=$PROFILE_ACTIVE application-service.jar
- 
+CMD ["sh", "-c", "java $JAVA_SETTINGS -Dserver.port=8080 -Dspring.profiles.active=$PROFILE_ACTIVE -jar application-service.jar && sleep infinity"]
