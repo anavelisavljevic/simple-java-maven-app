@@ -25,7 +25,7 @@ jobs:
           maven-version: '3.9.2'        
 
       - name: Build with Maven
-        run: mvn clean install  
+        run: mvn clean package spring-boot:repackage -DskipTests
         
       - name: Login into ECR container registry
         uses: docker/login-action@v3
